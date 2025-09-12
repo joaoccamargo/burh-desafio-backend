@@ -37,4 +37,8 @@ Este projeto é uma API RESTful para gerenciamento de vagas de emprego e candida
    ```sh
    php artisan serve
 
+
+# Endpoints
+[X] User
+
 Para Acessar o banco de dados utilize um (SGBD) de sua preferencia, colocando os mesmos dados que estão no arquivo docker-compose.yml
