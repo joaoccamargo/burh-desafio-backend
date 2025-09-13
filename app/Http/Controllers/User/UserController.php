@@ -49,4 +49,19 @@ class UserController extends Controller
         $user->delete();
         return response()->noContent();
     }
+
+    public function search()
+    {
+        $query = request()->query('q');
+
+        $users = User::with('jobsApplied')
+            ->where(function ($qBuilder) use ($query) {
+                $qBuilder->where('name', 'LIKE', "%{$query}%")
+                    ->orWhere('email', 'LIKE', "%{$query}%")
+                    ->orWhere('cpf', 'LIKE', "%{$query}%");
+            })
+            ->get();
+
+        return response()->json(['data' => $users], 200);
+    }
 }
