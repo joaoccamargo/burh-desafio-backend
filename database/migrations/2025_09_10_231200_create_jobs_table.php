@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('company_id')->constrained()->onDelete('cascade');
             $table->string('title', 150);
             $table->text('description')->nullable();
-            $table->enum('job_type', ['Contractor', 'FullTime', 'Internship']);
+            $table->enum('job_type', ['PJ', 'CLT', 'Estagio']);
             $table->decimal('salary', 10, 2)->nullable();
             $table->integer('work_hours')->nullable();
             $table->timestamps();
